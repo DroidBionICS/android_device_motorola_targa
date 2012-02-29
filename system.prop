@@ -324,5 +324,16 @@ ro.config.disable_hw_accel=true
 ro.config.play.bootsound=0
 
 ro.rommanager.developerid=dhacker29
-ro.modversion=ICS4BIONIC
+ro.modversion=MIUIBIONIC
+
+#Tweaks
+ro.kernel.android.checkjni=0
+ro.media.enc.jpeg.quality=100
+debug.sf.hw=1
+
+ro.config.ringtone=MI.ogg
+ro.config.notification_sound=FadeIn.ogg
+ro.config.alarm_alert=GoodMorning.ogg
+ro.config.sms_received_sound=FadeIn.ogg
+ro.config.sms_delivered_sound=MessageComplete.ogg
 
