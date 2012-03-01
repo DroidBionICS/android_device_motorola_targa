@@ -324,4 +324,4 @@ ro.config.disable_hw_accel=true
 ro.config.play.bootsound=0
 
 ro.rommanager.developerid=Hashcode
-ro.modversion=AOKP-targa-build-25
+ro.modversion=AOKP-targa-build-27
