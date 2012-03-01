@@ -274,14 +274,22 @@ PRODUCT_PACKAGES += \
     Superuser \
     su \
     Usb \
+    DockAudio \
 
 
 PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory \
     FileManager \
-    MusicFX \
     libjni_pinyinime \
+#    MusicFX \
+
+# CameraFix
+PRODUCT_COPY_FILES += \
+    device/motorola/targa/prebuilt/camerafix/hw/camera.omap4.so:system/lib/hw/camera.omap4.so \
+    device/motorola/targa/prebuilt/camerafix/libcamera.so:system/lib/libcamera.so \
+    device/motorola/targa/prebuilt/camerafix/libomxcameraadapter.so:system/lib/libomxcameraadapter.so \
+    device/motorola/targa/prebuilt/camerafix/libtiutils.so:system/lib/libtiutils.so \
 
 # WirelessTether Lib
 PRODUCT_COPY_FILES += \
@@ -414,6 +422,7 @@ $(call inherit-product, hardware/ti/wpan/ti-wpan-products.mk)
 #$(call inherit-product, hardware/ti/wpan/tools/FM/Android.mk)
 $(call inherit-product-if-exists, vendor/verizon/targa-verizon-vendor.mk)
 $(call inherit-product, vendor/miui/miui-vendor.mk)
+#$(call inherit-product, packages/apps/DSPManager/cyanogen-dsp/Android.mk)
 
 $(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor.mk)
 

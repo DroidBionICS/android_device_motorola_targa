@@ -35,6 +35,7 @@ BOARD_PAGE_SIZE := 0x4096
 
 # Storage / Sharing
 BOARD_VOLD_MAX_PARTITIONS := 30
+BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/usb_mass_storage/lun%d/file"
 BOARD_CUSTOM_USB_CONTROLLER := ../../device/motorola/targa/UsbController.cpp
 
@@ -69,6 +70,7 @@ ifdef BOARD_USES_AUDIO_LEGACY
     COMMON_GLOBAL_CFLAGS += -DBOARD_USES_AUDIO_LEGACY
 endif
 TARGET_PROVIDES_LIBAUDIO := true
+BOARD_USE_MOTO_DOCK_HACK := true
 
 
 # Bluetooth
@@ -89,7 +91,7 @@ BOARD_MKE2FS := device/motorola/targa/releaseutils/mke2fs
 BOARD_NONSAFE_SYSTEM_DEVICE := /dev/block/mmcblk1p21
 BOARD_HAS_SDCARD_INTERNAL := true
 #BOARD_HAS_SDEXT := false
-#BOARD_HAS_WEBTOP := false
+BOARD_HAS_WEBTOP := true
 TARGET_RECOVERY_PRE_COMMAND := "echo 1 > /data/.recovery_mode; sync;"
 TARGET_RECOVERY_PRE_COMMAND_CLEAR_REASON := true
 

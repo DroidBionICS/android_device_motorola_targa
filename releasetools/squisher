@@ -64,7 +64,6 @@ find ./ -name \*.apk | $XARGS $OPTICHARGER
 rm $REPACK/ota/system/app/FmRxApp.apk
 rm $REPACK/ota/system/app/FmService.apk
 rm $REPACK/ota/system/app/FmTxApp.apk
-rm $REPACK/ota/system/app/Music.apk
 rm $REPACK/ota/system/app/RomManager.apk
 
 
@@ -118,14 +117,12 @@ rm -rf $REPACK/ota/recovery
 	find $REPACK/ota/system/lib/modules -name "*.ko" -print0 | xargs -0 arm-eabi-strip --strip-unneeded
 
 # Copy libvoicesearch as it's getting messed up in the build
-cp -f $ANDROID_BUILD_TOP/vendor/google/prebuilt/lib/libvoicesearch.so $REPACK/ota/system/lib/libvoicesearch.so
-mv $REPACK/ota/system/app/TargaProgramMenu.apk $REPACK/ota/system/app/ProgramMenu.apk
-mv $REPACK/ota/system/app/TargaProgramMenuSystem.apk $REPACK/ota/system/app/ProgramMenuSystem.apk
+cp -f $ANDROID_BUILD_TOP/device/motorola/targa/prebuilt/lib/libvoicesearch.so $REPACK/ota/system/lib/libvoicesearch.so
 
 # Determine what to name the new signed package
 REALDATE=`date +%F-%H_%M`
 
-OUTFILE=$OUT/902-ICS-4.0.3_r1-$TARGET_PRODUCT-$REALDATE.zip
+OUTFILE=$OUT/ICS-4.0.3_r1-$TARGET_PRODUCT-$REALDATE.zip
 
 # Pack it up and sign
 printf "Zipping package..."
@@ -133,7 +130,7 @@ printf "Zipping package..."
 echo
 printf "Signing package..."
 SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security
-java -Xmx2048m \
+java -Xmx1536m \
 	-jar $ANDROID_BUILD_TOP/out/host/$OUT_TARGET_HOST/framework/signapk.jar \
 	-w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
 	$REPACK/update.zip $OUTFILE

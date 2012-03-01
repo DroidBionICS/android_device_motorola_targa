@@ -319,6 +319,9 @@ ro.ril.disable.power.collaspe=1
 pm.sleep_mode=1
 ro.config.disable_hw_accel=true
 
+# ril class extension for incoming forwarded calls
+#ro.telephony.ril_class=MotoWrigley3GRIL
+
 # To enable boot sounds set value to 1 and place /system/media/android_audio.mp3
 # or edit /system/bin/bootsound with the name of your audio
 ro.config.play.bootsound=0
@@ -336,4 +339,9 @@ ro.config.notification_sound=FadeIn.ogg
 ro.config.alarm_alert=GoodMorning.ogg
 ro.config.sms_received_sound=FadeIn.ogg
 ro.config.sms_delivered_sound=MessageComplete.ogg
+
+#Tweaks
+ro.kernel.android.checkjni=0
+ro.media.enc.jpeg.quality=100
+debug.sf.hw=1
 
